@@ -33,18 +33,6 @@ public class CurrencyExchangeController {
         logger.info("{}", currencyExchange);
 
         return currencyExchange;
-//        CurrencyExchange currencyExchange = new CurrencyExchange(1000L, from, to, BigDecimal.valueOf(70));
-//        currencyExchange.setEnvironment(environment.getProperty("local.server.port"));
-//        return currencyExchange;
 
-       /* CurrencyExchange currencyExchange =
-                repository.findByFromAndTo(from, to);
-
-        currencyExchange.setEnvironment(
-                Integer.parseInt(environment.getProperty("local.server.port")));
-
-        logger.info("{}", exchangeValue);
-
-        return exchangeValue;*/
     }
 }

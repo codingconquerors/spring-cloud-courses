@@ -4,6 +4,6 @@ import com.cloud.spring.microservices.currencyexchange.currencyexchangeservice.m
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CurrencyExchangeRepository extends
-        JpaRepository<CurrencyExchange, Long>{
+        JpaRepository<CurrencyExchange, Long> {
     CurrencyExchange findByFromAndTo(String from, String to);
 }
