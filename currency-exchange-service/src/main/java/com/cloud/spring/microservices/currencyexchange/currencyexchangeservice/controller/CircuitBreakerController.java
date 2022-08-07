@@ -24,9 +24,9 @@ public class CircuitBreakerController {
     //@CircuitBreaker(name = "default", fallbackMethod = "hardcodedResponse")
 
     //Rate limit with default configuration
-   // @RateLimiter(name="default")
+    @RateLimiter(name="default")
     // bulk head for concurrent calls allowed
-    @Bulkhead(name="sample-api", fallbackMethod = "hardcodedResponse")
+   // @Bulkhead(name="sample-api", fallbackMethod = "hardcodedResponse")
     //10s => 10000 calls to the sample api
     public String sampleApi() {
         logger.info("Sample api call received");
