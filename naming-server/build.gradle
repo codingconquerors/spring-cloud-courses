@@ -36,3 +36,15 @@ dependencyManagement {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+bootBuildImage {
+	pullPolicy = "IF_NOT_PRESENT"
+	imageName = "khushwinderdocker/microservices-${project.name}:${project.version}"
+	publish = true
+	docker {
+		publishRegistry {
+			username = project.property('dockerUserName')
+			password = project.property('dockerPassword')
+		}
+	}
+}
