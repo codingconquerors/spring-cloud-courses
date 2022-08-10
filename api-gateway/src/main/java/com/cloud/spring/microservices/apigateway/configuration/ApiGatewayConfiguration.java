@@ -1,3 +1,4 @@
+/*
 package com.cloud.spring.microservices.apigateway.configuration;
 
 import org.springframework.cloud.gateway.route.RouteLocator;
@@ -31,4 +32,4 @@ public class ApiGatewayConfiguration {
                 .build();
     }
 
-}
+}*/

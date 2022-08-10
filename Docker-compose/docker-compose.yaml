@@ -2,6 +2,7 @@ version: '3.9'
 
 services:
 
+# docker run -p 8761:8761 khushwinderdocker/microservices-naming-server:0.0.1-SNAPSHOT
   naming-server:
     image: khushwinderdocker/microservices-naming-server:0.0.1-SNAPSHOT
     mem_limit: 700m
@@ -10,6 +11,7 @@ services:
     networks:
       - currency-network
 
+#docker run -p 8765:8765 khushwinderdocker/microservices-api-gateway:0.0.1-SNAPSHOT
   api-gateway:
     image: khushwinderdocker/microservices-api-gateway:0.0.1-SNAPSHOT
     mem_limit: 700m
@@ -20,7 +22,7 @@ services:
     depends_on:
       - naming-server
     environment:
-      eureka.client.service-url.defaultZone: http://naming-server:8761/eureka
+      eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
       spring.zipkin.baseUrl: http://zipkin-server:9411/
 
   currency-exchange:
@@ -33,10 +35,10 @@ services:
     depends_on:
       - naming-server
     environment:
-      eureka.client.service-url.defaultZone: http://naming-server:8761/eureka
-      spring.zipkin.baseurl: http://zipkin-server:9411/
+      eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
+      spring.zipkin.baseUrl: http://zipkin-server:9411/
 
-  currency-conversion:
+  currency-converter:
     image: khushwinderdocker/microservices-currency-conversion-service:0.0.1-SNAPSHOT
     mem_limit: 700m
     ports:
@@ -46,8 +48,8 @@ services:
     depends_on:
       - naming-server
     environment:
-      eureka.client.service-url.defaultZone: http://naming-server:8761/eureka
-      spring.zipkin.baseurl: http://zipkin-server:9411/
+      eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
+      spring.zipkin.baseUrl: http://zipkin-server:9411/
 
 
   #docker run -p 9411:9411 openzipkin/zipkin:latest
